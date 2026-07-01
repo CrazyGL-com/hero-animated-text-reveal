@@ -1,0 +1,51 @@
+crazygl-hero[data-crazygl="animated-text-reveal"] {
+	crazygl-stage { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+	.crazygl-atr-bloom {
+		position: absolute; inset: -20%;
+		pointer-events: none;
+		background: radial-gradient(closest-side at 50% 60%,
+			color-mix(in oklab, var(--cgl-atr-accent, #ff7b00) 65%, transparent) 0%,
+			color-mix(in oklab, var(--cgl-atr-accent, #ff7b00) 22%, transparent) 35%,
+			transparent 65%);
+		opacity: var(--cgl-atr-accent-strength, 0.3);
+		mix-blend-mode: screen;
+		filter: blur(70px);
+	}
+	.crazygl-atr-vignette {
+		position: absolute; inset: 0; pointer-events: none;
+		background: radial-gradient(ellipse at center,
+			transparent 35%,
+			rgba(0,0,0,calc(var(--cgl-atr-vignette,0.35) * 0.6)) 75%,
+			rgba(0,0,0,var(--cgl-atr-vignette,0.35)) 100%);
+	}
+	crazygl-content {
+		position: absolute; inset: 0; z-index: 1;
+		display: flex; align-items: center; justify-content: center;
+		padding: clamp(24px, 5vw, 64px);
+		pointer-events: none;
+	}
+	.crazygl-atr-content {
+		display: flex; flex-direction: column; align-items: center;
+		gap: clamp(14px,1.6vw,24px);
+		max-width: min(1100px,92%);
+		pointer-events: auto;
+		width: 100%;
+	}
+	.crazygl-atr-heading { display: block; margin: 0; padding: 0; }
+	.crazygl-atr-word { will-change: opacity, filter; }
+	.crazygl-atr-cta {
+		appearance: none;
+		display: inline-flex; align-items: center; gap: 0.5em;
+		padding: 0.85em 1.5em;
+		border-radius: 999px;
+		border: 1px solid rgba(255,255,255,0.22);
+		background: rgba(255,255,255,0.08);
+		backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+		color: #f6f7fb;
+		font: inherit; font-weight: 600; letter-spacing: 0.02em;
+		font-size: clamp(0.9rem,1.05vw,0.98rem);
+		cursor: pointer;
+		transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+	}
+	.crazygl-atr-cta:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.4); transform: translateY(-1px); }
+}

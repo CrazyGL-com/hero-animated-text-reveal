@@ -1,0 +1,320 @@
+{
+  "name": "Animated Text Reveal",
+  "slug": "animated-text-reveal",
+  "version": 1,
+  "description": "A paragraph that unblurs and fades in word by word as the viewer scrolls \u2014 with an initial blur and initial opacity that mean even the un-revealed words sit softly on the page rather than disappearing.",
+  "dependencies": [],
+  "authorName": "@ybouane",
+  "authorUrl": "https://x.com/ybouane",
+  "tags": [
+    "scroll-reveal",
+    "typography",
+    "blur",
+    "fade-in",
+    "word-by-word"
+  ],
+  "category": "Typography",
+  "featured": true,
+  "dateCreated": 1780617600000,
+  "poster": "/images/heroes/animated-text-reveal.png",
+  "install": {
+    "package": "@crazygl/hero-animated-text-reveal"
+  },
+  "config": {
+    "managedWidth": true,
+    "innerWidth": 1200,
+    "managedHeight": true,
+    "defaultHeight": 720,
+    "styleInheritance": "none",
+    "usesCanvas": false,
+    "usesWebGL": false,
+    "usesThree": false,
+    "pointerTracking": false,
+    "resizeTracking": true,
+    "scrollTracking": true,
+    "supportsImages": false,
+    "supportsTransparency": true,
+    "interactive": false,
+    "supportsFontCustomization": true,
+    "interactivityModes": [
+      "scroll",
+      "none"
+    ],
+    "interactivity": "scroll",
+    "scrollEffect": true
+  },
+  "customizer": {
+    "sections": [
+      {
+        "label": "Content",
+        "fields": [
+          {
+            "id": "text",
+            "label": "Text",
+            "type": "textarea",
+            "default": "This text unblurs and fades in word by word as you scroll.",
+            "description": "Paragraph copy. Press Enter for hard line breaks."
+          },
+          {
+            "id": "ctaLabel",
+            "label": "CTA label",
+            "type": "text",
+            "default": "",
+            "description": "Optional CTA. Empty hides it."
+          },
+          {
+            "id": "onCTAClick",
+            "label": "On CTA click",
+            "type": "text",
+            "default": "",
+            "description": "URL to navigate to when clicked. From code you can also pass a function \u2014 same prop name, type-detected at runtime."
+          }
+        ]
+      },
+      {
+        "label": "Reveal",
+        "fields": [
+          {
+            "id": "initialBlur",
+            "label": "Initial blur",
+            "type": "slider",
+            "default": 3,
+            "min": 0,
+            "max": 12,
+            "step": 0.5,
+            "unit": "px",
+            "description": "Blur amount on un-revealed words. 3 px is the canonical reference default."
+          },
+          {
+            "id": "initialOpacity",
+            "label": "Initial opacity",
+            "type": "slider",
+            "default": 0.15,
+            "min": 0,
+            "max": 1,
+            "step": 0.01,
+            "description": "Opacity of un-revealed words. 0 = invisible until reached; 0.1\u20130.3 = ghost; 0.5+ = visible-but-soft."
+          },
+          {
+            "id": "fadeDuration",
+            "label": "Fade duration",
+            "type": "slider",
+            "default": 0.3,
+            "min": 0.1,
+            "max": 2,
+            "step": 0.05,
+            "unit": "s",
+            "description": "How long the per-word transition takes."
+          },
+          {
+            "id": "fadeDelay",
+            "label": "Per-word delay",
+            "type": "slider",
+            "default": 0.02,
+            "min": 0,
+            "max": 0.3,
+            "step": 0.01,
+            "unit": "s",
+            "description": "Cumulative stagger between successive words."
+          },
+          {
+            "id": "fadeEasing",
+            "label": "Easing",
+            "type": "select",
+            "default": "ease-out",
+            "options": [
+              {
+                "label": "Linear",
+                "value": "linear"
+              },
+              {
+                "label": "Ease",
+                "value": "ease"
+              },
+              {
+                "label": "Ease-in",
+                "value": "ease-in"
+              },
+              {
+                "label": "Ease-out",
+                "value": "ease-out"
+              },
+              {
+                "label": "Ease-in-out",
+                "value": "ease-in-out"
+              }
+            ]
+          },
+          {
+            "id": "scrollStart",
+            "label": "Scroll start (%)",
+            "type": "slider",
+            "default": 15,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "description": "Scroll progress at which the reveal starts. 0% = element just entering viewport.",
+            "showWhen": {
+              "interactivity": "scroll"
+            }
+          },
+          {
+            "id": "scrollEnd",
+            "label": "Scroll end (%)",
+            "type": "slider",
+            "default": 70,
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "description": "Scroll progress at which the reveal completes.",
+            "showWhen": {
+              "interactivity": "scroll"
+            }
+          },
+          {
+            "id": "autoplaySeconds",
+            "label": "Auto-play duration",
+            "type": "slider",
+            "default": 5,
+            "min": 1,
+            "max": 20,
+            "step": 0.5,
+            "unit": "s",
+            "showWhen": {
+              "interactivity": "none"
+            }
+          }
+        ]
+      },
+      {
+        "label": "Typography",
+        "fields": [
+          {
+            "id": "textColor",
+            "label": "Text colour",
+            "type": "color",
+            "default": "#ffffff",
+            "description": "Text colour."
+          },
+          {
+            "id": "textAlign",
+            "label": "Alignment",
+            "type": "select",
+            "default": "center",
+            "options": [
+              {
+                "label": "Left",
+                "value": "left"
+              },
+              {
+                "label": "Center",
+                "value": "center"
+              },
+              {
+                "label": "Right",
+                "value": "right"
+              }
+            ]
+          },
+          {
+            "id": "fontSize",
+            "label": "Font size",
+            "type": "slider",
+            "default": 56,
+            "min": 18,
+            "max": 140,
+            "step": 1,
+            "unit": "px"
+          },
+          {
+            "id": "lineHeight",
+            "label": "Line height",
+            "type": "slider",
+            "default": 1.2,
+            "min": 1,
+            "max": 1.8,
+            "step": 0.02
+          },
+          {
+            "id": "letterSpacing",
+            "label": "Letter spacing",
+            "type": "slider",
+            "default": -0.01,
+            "min": -0.05,
+            "max": 0.2,
+            "step": 0.005,
+            "unit": "em"
+          },
+          {
+            "id": "maxWidth",
+            "label": "Max width",
+            "type": "slider",
+            "default": 900,
+            "min": 320,
+            "max": 1400,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "id": "headingFontFamily",
+            "label": "Heading font",
+            "type": "font",
+            "default": "Inter"
+          },
+          {
+            "id": "headingFontWeight",
+            "label": "Heading weight",
+            "type": "slider",
+            "default": 600,
+            "min": 100,
+            "max": 900,
+            "step": 100
+          }
+        ]
+      },
+      {
+        "label": "Backdrop",
+        "fields": [
+          {
+            "id": "transparentBackground",
+            "label": "Transparent background",
+            "type": "toggle",
+            "default": false
+          },
+          {
+            "id": "bgColor",
+            "label": "Background colour",
+            "type": "color",
+            "default": "#0a0c14"
+          },
+          {
+            "id": "accentColor",
+            "label": "Accent glow colour",
+            "type": "color",
+            "default": "#ff7b00"
+          },
+          {
+            "id": "accentStrength",
+            "label": "Accent glow strength",
+            "type": "slider",
+            "default": 0.3,
+            "min": 0,
+            "max": 1.4,
+            "step": 0.02
+          },
+          {
+            "id": "vignetteStrength",
+            "label": "Vignette",
+            "type": "slider",
+            "default": 0.35,
+            "min": 0,
+            "max": 1,
+            "step": 0.02
+          }
+        ]
+      }
+    ]
+  }
+}
