@@ -3,7 +3,7 @@ name: animated-text-reveal
 description: "A paragraph that unblurs and fades in word by word as the viewer scrolls — with an initial blur and initial opacity that mean even the un-revealed words sit softly on the page rather than disappearing."
 metadata:
   author: "@ybouane"
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 ## How To Use This Skill

@@ -1,7 +1,7 @@
 {
 	"name": "@crazygl/hero-animated-text-reveal",
-	"version": "0.1.0",
-	"description": "Animated Text Reveal — paragraph reveal that unblurs and fades in word by word as the viewer scrolls, with configurable initial blur, initial opacity, per-word delay, and easing.",
+	"version": "0.1.1",
+	"description": "Animated Text Reveal — A paragraph that unblurs and fades in word by word as the viewer scrolls — with an initial blur and initial opacity that mean even the un-revealed words sit softly on the page rather than… A customizable CrazyGL animated hero section — WebGL, React, drop-in.",
 	"type": "module",
 	"main": "./dist/index.js",
 	"module": "./dist/index.js",
@@ -21,7 +21,7 @@
 		"LICENSE"
 	],
 	"dependencies": {
-		"@crazygl/core": "^0.1.0"
+		"@crazygl/core": "^0.1.1"
 	},
 	"peerDependencies": {
 		"react": ">=18",
@@ -36,5 +36,29 @@
 	},
 	"publishConfig": {
 		"access": "public"
+	},
+	"keywords": [
+		"scroll-reveal",
+		"typography",
+		"blur",
+		"fade-in",
+		"word-by-word",
+		"animated-text-reveal",
+		"crazygl",
+		"hero",
+		"hero-section",
+		"webgl",
+		"react",
+		"animation",
+		"ui",
+		"landing-page",
+		"interactive",
+		"frontend",
+		"component",
+		"canvas",
+		"three"
+	],
+	"bugs": {
+		"url": "https://github.com/crazygl-com/hero-animated-text-reveal/issues"
 	}
 }
